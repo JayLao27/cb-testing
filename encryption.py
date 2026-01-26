@@ -1,19 +1,11 @@
-def encrypt(text):
+def encrypt(text, shift):
     result = ""
 
     for char in text:
-        if char.isalpha():  # check if it's a letter
-            shift = 3
+        if char.isalpha():
             start = ord('A') if char.isupper() else ord('a')
             result += chr((ord(char) - start + shift) % 26 + start)
         else:
-            # keep spaces, numbers, symbols unchanged
             result += char
 
     return result
-
-
-# Example usage
-message = input("Enter your message: ")
-encrypted = encrypt(message)
-print("Encrypted message:", encrypted)
